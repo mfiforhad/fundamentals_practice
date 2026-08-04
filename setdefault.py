@@ -105,13 +105,14 @@ text: str = "mississippi"
 count_letter: dict[str, int] = {}
 
 for letter in text:
-    count_letter.setdefault(letter, text.count(letter))
+    count_letter.setdefault(letter, 0)
+    count_letter[letter] += 1
 
 print(count_letter)
 
 
 # Nested Dictionaries
-
+# %%
 sales = [
     ("Alice", "Book", 2),
     ("Alice", "Pen", 5),
@@ -123,8 +124,9 @@ sales = [
 employee: dict[str, dict[str, int]] = {}
 
 for name, item, qty in sales:
-    employee.setdefault(name, {}).setdefault(item, qty)
-
+    employee.setdefault(name, {})
+    employee[name].setdefault(item, 0)
+    employee[name][item] += qty
 print(employee)
 
 
@@ -145,7 +147,7 @@ Expected output
 }
 """
 
-
+# %%
 data = [
     ("Math", "Alice", 95),
     ("Science", "Bob", 88),
@@ -157,6 +159,10 @@ data = [
 subject_wise_data: dict[str, dict[str, int]] = {}
 
 for subject, name, mark in data:
-    subject_wise_data.setdefault(subject, {}).setdefault(name, mark)
+    subject_wise_data.setdefault(subject, {})
+    subject_wise_data[subject][name] = mark
+
 
 print(subject_wise_data)
+
+# %%
