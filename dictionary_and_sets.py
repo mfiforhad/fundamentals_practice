@@ -3,6 +3,7 @@
 # -----------------
 
 """
+Exercise 1: Student Grades
 Tasks:
 •	Print Bob's grade.
 •	Add "David": 81.
@@ -19,6 +20,9 @@ Practice methods
 •	pop()
 """
 
+from pygments import highlight
+
+
 grades: dict = {"Alice": 88, "Bob": 72, "Charlie": 95}
 
 print(grades.get("Bob"))
@@ -29,6 +33,7 @@ print(grades.values())
 print(grades.items())
 
 """
+Exercise 2: Word Frequency
 Count how many times each word appears.
 Expected:
 {
@@ -54,6 +59,7 @@ print(expected_dictionary)
 
 
 """
+Exercise 3: Phone Book
 Create a phone book dictionary.
 Tasks:
 •	Search a person safely.
@@ -77,4 +83,46 @@ phone_book.update(Jessie = 88624584754)
 phone_book.pop("Ying", "Not Found")
 print(sorted(phone_book.items(), key=lambda x: x[0]))
 
-inventory = {"apple": 30, "banana": 12, "orange": 18}
+
+"""
+Exercise 4
+
+Questions
+1.	Add:
+{
+    "grape": 20,
+    "banana": 25
+}
+2.	Add "mango" only if it doesn't already exist.
+3.	Create a copy.
+4.	Empty the original dictionary.
+
+"""
+# %%
+inventory: dict[str, int] = {"apple": 30, "banana": 12, "orange": 18}
+
+inventory.update(grape= 20, banana= 25)
+
+inventory.setdefault("mango", 38)
+
+inventory2 = inventory.copy()
+
+print(inventory2)
+
+# %%
+"""
+Exercise 5
+Find
+•	Highest-priced product
+•	Lowest-priced product
+•	Total inventory value
+"""
+prices: dict[str, int] = {"Laptop": 850, "Mouse": 25, "Keyboard": 50}
+print(max(prices.items(), key=lambda item: item[1]))
+print(min(prices.items(), key=lambda item: item[1]))
+print(sum(prices.values()))
+
+# %%
+
+
+# %%
