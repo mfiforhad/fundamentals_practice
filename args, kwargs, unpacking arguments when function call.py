@@ -293,8 +293,14 @@ version = 2
 
 
 def process_data(title, *numbers, round_result=False, **extra):
+    avg = sum(numbers) / len(numbers)
+
+    if round_result:
+        avg = round(avg)
+
     print(title)
-    print(f"Avarage: {sum(numbers) / len(numbers)}")
+    print(f"Avarage: {avg}")
+
     for k, v in extra.items():
         print(f"{k} = {v}")
 
