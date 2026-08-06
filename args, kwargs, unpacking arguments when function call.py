@@ -230,7 +230,7 @@ Exercise 15: Write a function Then call it
 
 
 def order(item, quantity, price):
-    return f"Item: {item} \nQuantity: {quantity} \nPrice: {price}"
+    return f"Item: {item}\n" f"Quantity: {quantity}\n" f"Price: ${price:.2f}"
 
 
 details = {"item": "Book", "quantity": 3, "price": 12.5}
