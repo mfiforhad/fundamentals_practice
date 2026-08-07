@@ -20,13 +20,6 @@ Practice methods
 •	pop()
 """
 
-from email.policy import default
-
-from networkx import symmetric_difference
-from numpy import sort
-from pygments import highlight
-
-
 grades: dict = {"Alice": 88, "Bob": 72, "Charlie": 95}
 
 print(grades.get("Bob"))
@@ -83,7 +76,7 @@ phone_book = {
 }
 
 phone_book.get("Forhad")
-phone_book.update(Jessie = 88624584754)
+phone_book.update(Jessie=88624584754)
 phone_book.pop("Ying", "Not Found")
 print(sorted(phone_book.items(), key=lambda x: x[0]))
 
@@ -105,7 +98,7 @@ Questions
 # %%
 inventory: dict[str, int] = {"apple": 30, "banana": 12, "orange": 18}
 
-inventory.update(grape= 20, banana= 25)
+inventory.update(grape=20, banana=25)
 
 inventory.setdefault("mango", 38)
 
@@ -144,7 +137,7 @@ Create
 """
 numbers = [1, 2, 3, 4, 5]
 
-sqr_numbers = {n:n**2 for n in numbers}
+sqr_numbers = {n: n**2 for n in numbers}
 
 print(sqr_numbers)
 
@@ -186,7 +179,7 @@ into
 
 primary_dictionary = {"a": 1, "b": 2, "c": 3}
 
-converted_dictionary = {value: key for key, value in  primary_dictionary.items()}
+converted_dictionary = {value: key for key, value in primary_dictionary.items()}
 
 print(converted_dictionary)
 
@@ -206,10 +199,10 @@ Find
 A = {1, 2, 3, 4}
 B = {3, 4, 5, 6}
 
-C:set[int] = A | B
-D:set[int] = A & B
-E:set[int] = A - B
-F:set[int] = A ^ B
+C: set[int] = A | B
+D: set[int] = A & B
+E: set[int] = A - B
+F: set[int] = A ^ B
 print(f"Union: {C}")
 print(f"Intersection: {D}")
 print(f"Difference: {E}")
@@ -270,7 +263,7 @@ Expected
 {1,4,9,16,25}
 """
 numbers = [1, 2, 2, 3, 3, 4, 5, 5]
-print(set(number ** 2 for number in numbers))
+print(set(number**2 for number in numbers))
 
 # %%
 """
@@ -309,7 +302,6 @@ print(f"Yesterday Visitors: {yesterday_visitors}")
 
 # %%
 # Exercise 15: Shopping Cart
-
 """
 Calculate
 •	Total bill
@@ -321,13 +313,44 @@ cart = {"Apple": 4, "Banana": 2, "Milk": 1}
 
 prices = {"Apple": 30, "Banana": 15, "Milk": 80}
 
-print(sum(cart * price for cart, price in zip(cart.values(), prices.values())))
-print(max(zip(cart.items(), prices.items()), key=lambda x: x[1]))
+print(
+    f"Total bill: {sum(cart * price for cart, price in zip(cart.values(), prices.values()))}"
+)
 
+print(
+    f"Most expensive purchased item: {max(cart, key=lambda item: cart[item] * prices[item])}"
+)
 
+print(f"Average item price: {round(sum(prices.values()) / len(prices.values()), 2)}")
+
+print(f"Expensive Product: {max(prices, key= lambda item: prices[item])}")
 
 # %%
-for cart_item, item_price in zip(cart.items(), prices.items()):
-    print(item_price[1] * cart_item[1])
+# Exercise 16: Inventory Merge
+"""
+Warehouse A
+{
+    "Pen":40,
+    "Book":20,
+    "Pencil":60
+}
+Warehouse B
+{
+    "Book":15,
+    "Pen":30,
+    "Eraser":50
+}
+Merge them by adding quantities.
+Expected
+{
+    "Pen":70,
+    "Book":35,
+    "Pencil":60,
+    "Eraser":50
+}
+"""
+Warehouse_A: dict[str, int] = {"Pen": 40, "Book": 20, "Pencil": 60}
+Warehouse_B: dict[str, int] = {"Book": 15, "Pen": 30, "Eraser": 50}
+
 
 # %%
